@@ -3,6 +3,9 @@ using API.Repositories;
 
 namespace API.Services
 {
+    /// <summary>
+    /// Process guest information
+    /// </summary>
     public class GuestService : IGuestService
     {
         private readonly IDataManager _dataManager;

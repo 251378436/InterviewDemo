@@ -1,5 +1,6 @@
 using API.Repositories;
 using API.Services;
+using API.Support.FileProvider;
 using API.Support.Mapping;
 using API.Support.Validation;
 using FluentValidation;
@@ -18,6 +19,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<RequestValidator>(ServiceLi
 builder.Services.AddAutoMapper(exp => exp.AddProfile(typeof(AutoMapperProfile)));
 builder.Services.AddSingleton<IGuestService, GuestService>();
 builder.Services.AddSingleton<IDataManager, DataManager>();
+builder.Services.AddSingleton<FileProviderService>();
 
 var app = builder.Build();
 

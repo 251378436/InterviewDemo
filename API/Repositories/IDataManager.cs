@@ -4,7 +4,7 @@ namespace API.Repositories
 {
     public interface IDataManager
     {
-        Task<IEnumerable<Guest>> GetGuests();
+        Task<List<Guest>> GetGuests();
         Task SaveGuest(Guest guest);
     }
 }
