@@ -1,5 +1,8 @@
 using API.Repositories;
 using API.Services;
+using API.Support.Mapping;
+using API.Support.Validation;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddValidatorsFromAssemblyContaining<RequestValidator>(ServiceLifetime.Transient);
+
+builder.Services.AddAutoMapper(exp => exp.AddProfile(typeof(AutoMapperProfile)));
 builder.Services.AddSingleton<IGuestService, GuestService>();
 builder.Services.AddSingleton<IDataManager, DataManager>();
 
