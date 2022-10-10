@@ -7,7 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Content\collections.json" />
+    <Content Remove="Content\guests.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Content\collections.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Content\guests.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Support\Models\" />
   </ItemGroup>
 
 </Project>
