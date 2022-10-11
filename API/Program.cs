@@ -21,6 +21,11 @@ builder.Services.AddSingleton<IGuestService, GuestService>();
 builder.Services.AddSingleton<IDataManager, DataManager>();
 builder.Services.AddSingleton<FileProviderService>();
 
+builder.Services.AddCors(c =>
+{
+    c.AddPolicy("AllowOrigin", options => options.AllowAnyHeader().AllowAnyOrigin());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,7 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("AllowOrigin");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
