@@ -1,0 +1,9 @@
+<h2>Guest Details</h2>
+<div>
+  <label for="firstName">first name: </label>
+  <input id="firstName" [(ngModel)]="guest.firstName" placeholder="first name">
+  <label for="lastName">last name: </label>
+  <input id="lastName" [(ngModel)]="guest.lastName" placeholder="last name">
+  <br/>
+  <button (click)="submit()">Submit</button> <span>{{message}}</span>
+</div>
